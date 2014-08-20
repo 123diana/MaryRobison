@@ -4,12 +4,6 @@
   <style type="text/css">
     body {
       background-color: #C6E2FF;
-      -webkit-touch-callout: none;
-      -webkit-user-select: none;
-      -khtml-user-select: none;
-      -moz-user-select: none;
-      -ms-user-select: none;
-      user-select: none;
     }
     h1 {
       background-color: white;
@@ -19,7 +13,7 @@
       text-align: center;
     }
   
-    #button {
+    #quote-container {
       min-height: 100px;
       width: 400px;
       display: block;
@@ -30,7 +24,7 @@
       margin: 0 auto;
     }
     
-    #button:hover {
+    #quote-container:hover {
       border: 2px solid black;
       width: 396px;
     }
@@ -113,7 +107,7 @@
         3. Add citations at bottom of page that change with quotes
       */
       
-      $("#button").click(function() {
+      $("#instructions").click(function() {
         var quoteIndex = Math.floor(Math.random() * quotes.length);
         var nextQuote = quotes[quoteIndex];
         $("#quote").text(nextQuote);
@@ -124,7 +118,7 @@
 
 <body>
   <h1>I Made This for Kevin Canty</h1>
-  <div id="button"><p id="quote">Mary Robison Quote Generator</p></div>
+  <div id="quote-container"><p id="quote">Mary Robison Quote Generator</p></div>
   <div id="instructions"><span>Click above for a quote.</span></div>  
 </body>
 
