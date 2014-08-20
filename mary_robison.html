@@ -13,12 +13,14 @@
       text-align: center;
     }
   
-    #quote-container {
-      height: 350px;
+    #button {
+      min-height: 100px;
       width: 400px;
       display: block;
       border-radius: 5px;
+      border-style: solid;
       background-color: white;
+      border: 2px;
       border-color: black;
       text-align: center;
       margin: 0 auto;
@@ -26,58 +28,22 @@
     
     #instructions {
       height: 25px;
-      width: 200px;
-      line-height: 25px;
+      width: 80px;
       background-color: white;
       border-radius: 5px;
       margin: 0 auto;
-      margin-top: 24px;
       text-align: center;
+      display: in-line block;
     }
   
-   #instructions:hover {
-      border: 2px solid black;
-    }
-  
-    #quote-container p {
+    p {
       -webkit-box-sizing: border-box;
       color: black;
       font-family: Garamond;
-      font-weight: bold;
-      font-size: 24px;
-      text-align: center;
+      font-size: 18px;
+      text-align: left;
       padding: 3em;
     }
-    
-    span {
-      display: in-line block;
-      vertical-align: middle;
-      line-height: normal;
-      font-family: Garamond;
-      font-size: 14px;
-      font-weight: bold;
-    }
-    
-    .footer {
-      background-color: transparent;
-      margin: 0-auto;
-      position: relative;
-      bottom: -300px;
-      display: in-line block;
-      text-align: center;
-      }
-    
-    .footer p {
-      text-align: center;
-      font-family: Garamond;
-      font-size: 10px;
-      padding: 24px;
-    }
-    
-    a {
-      text-decoration: underline;
-      color: blue;
-      }
     
   </style>
   <script src='http://code.jquery.com/jquery-latest.min.js' type='text/javascript'></script>
@@ -107,7 +73,7 @@
         "Here’s a sign that reads: ‘PORK!’ Some signs aren’t there to make you happy."
       ];
       
-    /*
+  
       var quoteArray = "First part of quote \n second part".split('\n')
       // ['First part of quote', 'second part of quote'];
       
@@ -119,46 +85,30 @@
         quoteDisplay.append($('<br>'));
       }
       $('#quote').append(quoteDisplay);
-    */
+    
       
+      /*
+        TODO TODO TODO
+        1. Add more quotes
+        2. Add a little button that says "Push me!"
+          OR
+        2. Make default text for the quote window say "click me for a quote"
+        3. Add citations at bottom of page that change with quotes
+      */
       
-      $("#instructions").click(function() {
-        $("#quote-container").fadeOut(400, function() {
-          var quoteIndex = Math.floor(Math.random() * quotes.length);
-          var nextQuote = quotes[quoteIndex];
-          $("#quote").text(nextQuote);
-          $("#quote-container p").css("text-align", "left");
-          $("#quote-container p").css("font-size", "18px");
-          $("#quote-container p").css("font-weight", "normal");
-          $("#quote-container").fadeIn(400);
-          });
-     
-        //Getting the FadeIn and FadeOut to work...             
-        //This is currently flashing. Because it is looping? Set a while loop to eliminate blinking?"
-        //Attempted to fix it by nesting the fadeIn function within the fadeOut function.
-        //Broke it. 
-        //Fixed it but the new text comes in before the fadeIn and fades away with the container.
-        //Fixed it by reorganizing the flow of actions. 
-  });
-});
+      $("#button").click(function() {
+        var quoteIndex = Math.floor(Math.random() * quotes.length);
+        var nextQuote = quotes[quoteIndex];
+        $("#quote").text(nextQuote);
+      });
+    });
   </script>
 </head>
 
 <body>
   <h1>I Made This for Kevin Canty</h1>
-  <div id="quote-container"><p id="quote">Mary Robison<br>Quote Generator</p></div>
-  <div id="instructions"><span>click for a quote</span></div>  
-  <div class="footer"><p>All quotes belong to <a href="http://en.wikipedia.org/wiki/Mary_Robison">Mary Robison</a>. She is fantastic.</p></div>
+  <div id="button"><p id="quote">Mary Robison Quote Generator</p></div>
+  <div id="instructions"><p>Click above for a quote.</p></div>  
 </body>
-
-<!--
-        TODO TODO TODO
-        1. Add more quotes.
-        2. Add a footer that links to Mary Robison on the Web. DONE
-        3. Add a fadeOut and fadeIn functionality to the #quote-container BROKEN
-        4. Change the font of "Mary Robison Quote Generator" DONE
-        5. Add function that changes title font back to regular Garamond font DONE
-        6. Figure out how to include line breaks and italics (html tags) in the quote container.
--->
 
 </html>
